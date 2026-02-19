@@ -1,0 +1,139 @@
+/* Mobile Responsive Menu Styles */
+
+/* Hamburger Menu Button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-toggle:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.menu-toggle.active::before {
+    content: "✕";
+}
+
+.menu-toggle::before {
+    content: "☰";
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    z-index: 999;
+}
+
+.mobile-menu.open {
+    display: flex;
+    animation: slideDown 0.3s ease;
+}
+
+/* Slide Down Animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Menu Items */
+.mobile-menu .nav-btn {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    background-color: transparent;
+    padding: 1rem;
+    text-align: left;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.mobile-menu .nav-btn:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu .nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: none;
+    box-shadow: none;
+}
+
+.mobile-menu .nav-btn.active {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: white;
+}
+
+/* Responsive Design for Tablets and Smaller Devices */
+@media (max-width: 768px) {
+    nav {
+        position: relative;
+    }
+
+    .nav-container {
+        position: relative;
+        padding: 0 1rem;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Extra Small Devices (Mobile Phones) */
+@media (max-width: 480px) {
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+
+    .menu-toggle {
+        right: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .mobile-menu .nav-btn {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .nav-container {
+        padding: 0 0.5rem;
+    }
+}
+
+/* Landscape Mode on Small Devices */
+@media (max-height: 600px) and (orientation: landscape) {
+    .mobile-menu .nav-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}
