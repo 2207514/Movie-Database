@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Database</title>
+    <link rel="stylesheet" href="resize.css">
     <style>
         * {
             margin: 0;
@@ -32,6 +33,7 @@
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
+            position: relative;
             justify-content: space-between;
             align-items: center;
         }
@@ -126,9 +128,15 @@
         <div class="nav-container">
             <a href="#" class="nav-logo">🎬 Movie Database</a>
             <div class="nav-buttons">
-                <button class="nav-btn active" onclick="showSection('home')">Home</button>
-                <button class="nav-btn" onclick="showSection('info')">Info</button>
-                <button class="nav-btn" onclick="showSection('links')">Links</button>
+                <button class="nav-btn active" onclick="showSection('home', event)">Home</button>
+                <button class="nav-btn" onclick="showSection('info', event)">Info</button>
+                <button class="nav-btn" onclick="showSection('links', event)">Links</button>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"></button>
+            <div class="mobile-menu" id="mobileMenu">
+                <button class="nav-btn active" onclick="showSection('home', event)">Home</button>
+                <button class="nav-btn" onclick="showSection('info', event)">Info</button>
+                <button class="nav-btn" onclick="showSection('links', event)">Links</button>
             </div>
         </div>
     </nav>
@@ -169,21 +177,36 @@
     </main>
 
     <script>
-        function showSection(sectionId) {
-            // Hide all sections
+        function showSection(sectionId, evt) {
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => section.classList.remove('active'));
 
-            // Remove active class from all buttons
             const buttons = document.querySelectorAll('.nav-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
 
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) targetSection.classList.add('active');
 
-            // Add active class to clicked button
-            event.target.classList.add('active');
+            if (evt && evt.target) evt.target.classList.add('active');
+
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuToggle = document.getElementById('menuToggle');
+            if (mobileMenu && mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('open');
+                if (menuToggle) menuToggle.classList.remove('active');
+            }
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    mobileMenu.classList.toggle('open');
+                });
+            }
+        });
     </script>
 </body>
 </html>
