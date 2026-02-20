@@ -31,15 +31,13 @@
 /* Mobile Menu Styles */
 .mobile-menu {
     display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
+    /* Put the mobile menu into the document flow so it pushes content down */
+    position: relative;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     flex-direction: column;
     gap: 0;
     width: 100%;
     border-top: 2px solid rgba(255, 255, 255, 0.2);
-    z-index: 999;
 }
 
 .mobile-menu.open {

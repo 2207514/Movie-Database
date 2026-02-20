@@ -46,7 +46,6 @@
         }
 
         .nav-buttons {
-            display: flex;
             gap: 1rem;
             flex-wrap: wrap;
             align-items: center;
@@ -96,6 +95,12 @@
             }
         }
 
+        @media (min-width: 769px) {
+            .nav-buttons {
+                display: flex;
+            }
+        }
+
         /* Main Content */
         main {
             max-width: 1200px;
@@ -133,13 +138,14 @@
                 <button class="nav-btn" onclick="showSection('links', event)">Links</button>
             </div>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"></button>
-            <div class="mobile-menu" id="mobileMenu">
-                <button class="nav-btn active" onclick="showSection('home', event)">Home</button>
-                <button class="nav-btn" onclick="showSection('info', event)">Info</button>
-                <button class="nav-btn" onclick="showSection('links', event)">Links</button>
-            </div>
         </div>
     </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="nav-btn active" onclick="showSection('home', event)">Home</button>
+        <button class="nav-btn" onclick="showSection('info', event)">Info</button>
+        <button class="nav-btn" onclick="showSection('links', event)">Links</button>
+    </div>
 
     <!-- Main Content -->
     <main>
