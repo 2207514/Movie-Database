@@ -193,15 +193,19 @@
                 <button class="nav-btn active" onclick="showSection('home', event)">Movies</button>
                 <button class="nav-btn" onclick="showSection('info', event)">Info</button>
                 <button class="nav-btn" onclick="showSection('links', event)">Links</button>
-                <a href="#" class="nav-account" id="navAccount" aria-label="Account">JD</a>
+                <a href="#" class="nav-account" id="navAccount" aria-label="Account">
+                    <img src="Images/user.webp" alt="User avatar">
+                </a>
             </div>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"></button>
         </div>
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
-        <div style="display:flex;align-items:center;gap:0.75rem;padding:0.5rem 1rem;">
-            <a href="#" class="nav-account" id="mobileAccount" aria-label="Account">JD</a>
+            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.5rem 1rem;">
+            <a href="#" class="nav-account" id="mobileAccount" aria-label="Account">
+                <img src="Images/user.png" alt="User avatar">
+            </a>
             <input type="search" placeholder="Search movies..." style="flex:1;padding:0.5rem;border-radius:12px;border:1px solid #ddd;">
         </div>
         <button class="nav-btn active" onclick="showSection('home', event)">Home</button>
