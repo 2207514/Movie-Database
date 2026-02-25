@@ -20,7 +20,7 @@
 
         /* Navigation Bar Styles */
         nav {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: rgb(218, 218, 218);
             padding: 1rem 0;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: sticky;
@@ -53,10 +53,13 @@
 
         .nav-btn {
             background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
+            color: grey;
+            border: 2px solid darkgrey;
+            padding: 0 1rem;
+            min-height: 40px;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 25px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: 500;
@@ -101,6 +104,54 @@
             }
         }
 
+        /* Inline search placed with nav links */
+        .nav-search {
+            display: inline-block;
+            min-width: 220px;
+            max-width: 420px;
+            margin-right: 0.75rem;
+            align-self: center;
+        }
+
+        .nav-search input {
+            width: 100%;
+            padding: 0 0.75rem;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            font-size: 0.95rem;
+        }
+
+        /* Circular account avatar */
+        .nav-account {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            border: 2px solid rgba(0,0,0,0.08);
+        }
+
+        .nav-account img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .nav-account:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.18);
+        }
+
         /* Main Content */
         main {
             max-width: 1200px;
@@ -133,15 +184,23 @@
         <div class="nav-container">
             <a href="#" class="nav-logo">🎬 Movie Database</a>
             <div class="nav-buttons">
-                <button class="nav-btn active" onclick="showSection('home', event)">Home</button>
+                <form class="nav-search" role="search" onsubmit="event.preventDefault();">
+                    <input type="search" name="q" placeholder="Search movies..." aria-label="Search movies">
+                </form>
+                <button class="nav-btn active" onclick="showSection('home', event)">Movies</button>
                 <button class="nav-btn" onclick="showSection('info', event)">Info</button>
                 <button class="nav-btn" onclick="showSection('links', event)">Links</button>
+                <a href="#" class="nav-account" id="navAccount" aria-label="Account">JD</a>
             </div>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"></button>
         </div>
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
+        <div style="display:flex;align-items:center;gap:0.75rem;padding:0.5rem 1rem;">
+            <a href="#" class="nav-account" id="mobileAccount" aria-label="Account">JD</a>
+            <input type="search" placeholder="Search movies..." style="flex:1;padding:0.5rem;border-radius:12px;border:1px solid #ddd;">
+        </div>
         <button class="nav-btn active" onclick="showSection('home', event)">Home</button>
         <button class="nav-btn" onclick="showSection('info', event)">Info</button>
         <button class="nav-btn" onclick="showSection('links', event)">Links</button>
