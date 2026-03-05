@@ -6,180 +6,8 @@
     <title>Movie Database</title>
     <link rel="stylesheet" href="CSS/resize.css">
     <link rel="stylesheet" href="CSS/main.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        /* Navigation Bar Styles */
-        nav {
-            background: rgb(218, 218, 218);
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            position: relative;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .nav-buttons {
-            gap: 1rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .nav-btn {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: grey;
-            border: 2px solid darkgrey;
-            padding: 0 1rem;
-            min-height: 40px;
-            display: inline-flex;
-            align-items: center;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .nav-btn:hover {
-            background-color: white;
-            color: #667eea;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .nav-btn.active {
-            background-color: white;
-            color: #667eea;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-buttons {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .nav-btn {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.95rem;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .nav-buttons {
-                display: flex;
-            }
-        }
-
-        /* Inline search placed with nav links */
-        .nav-search {
-            display: inline-block;
-            min-width: 220px;
-            max-width: 420px;
-            margin-right: 0.75rem;
-            align-self: center;
-        }
-
-        .nav-search input {
-            width: 100%;
-            padding: 0 0.75rem;
-            height: 40px;
-            border-radius: 20px;
-            border: none;
-            outline: none;
-            font-size: 0.95rem;
-        }
-
-        /* content-row styles moved to main.css */
-
-        /* Circular account avatar */
-        .nav-account {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            margin-left: 0.5rem;
-            border: 2px solid rgba(0,0,0,0.08);
-        }
-
-        .nav-account img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            display: block;
-        }
-
-        .nav-account:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.18);
-        }
-
-        /* Main Content */
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            min-height: calc(100vh - 200px);
-        }
-
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        h2 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            margin-bottom: 1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="CSS/nav.css">
+    <link rel="stylesheet" href="CSS/account.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -193,7 +21,7 @@
                 <button class="nav-btn active" onclick="showSection('home', event)">Movies</button>
                 <button class="nav-btn" onclick="showSection('info', event)">TV Shows</button>
                 <button class="nav-btn" onclick="showSection('celeb', event)">Celebrities</button>
-                <a href="#" class="nav-account" id="navAccount" aria-label="Account">
+                <a href="javascript:void(0);" class="nav-account" id="navAccount" onclick="openAccountModal()" aria-label="Account">
                     <img src="Images/user.webp" alt="User avatar">
                 </a>
             </div>
@@ -203,7 +31,7 @@
 
     <div class="mobile-menu" id="mobileMenu">
             <div style="display:flex;align-items:center;gap:0.75rem;padding:0.5rem 1rem;">
-            <a href="#" class="nav-account" id="mobileAccount" aria-label="Account">
+            <a href="javascript:void(0);" class="nav-account" id="mobileAccount" onclick="openAccountModal()" aria-label="Account">
                 <img src="Images/user.png" alt="User avatar">
             </a>
             <input type="search" placeholder="Search movies..." style="flex:1;padding:0.5rem;border-radius:12px;border:1px solid #ddd;">
@@ -290,7 +118,7 @@
             </ul>
         </section>
 
-        <!-- Links Section -->
+        <!-- Celebrity Section -->
         <section id="celeb" class="section">
             <h2>Useful Links</h2>
             <p>Check out these resources:</p>
@@ -322,6 +150,128 @@
         </div>
     </footer>
 
+    <!-- Account Modal Pop-up -->
+    <div class="modal-overlay" id="accountModal">
+        <button class="close-btn" onclick="closeAccountModal()">×</button>
+        <div class="account-container">
+            <div class="account-header">
+                <h1>🎬 Movie Database</h1>
+                <p>Your Gateway to Movies</p>
+            </div>
+
+            <div class="account-tabs">
+                <button class="account-tab-btn active" onclick="switchAccountTab('login')">Login</button>
+                <button class="account-tab-btn" onclick="switchAccountTab('signup')">Sign Up</button>
+            </div>
+
+            <div id="login-tab" class="account-tab-content active">
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-group remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember" style="margin: 0;">Remember me</label>
+                    </div>
+                    <button type="submit" class="account-submit-btn">Login</button>
+                </form>
+                <div class="form-footer">
+                    <p>Don't have an account? <a onclick="switchAccountTab('signup')">Sign Up</a></p>
+                    <p><a href="#">Forgot Password?</a></p>
+                </div>
+            </div>
+
+            <div id="signup-tab" class="account-tab-content">
+                <form onsubmit="handleSignUp(event)">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" name="password" placeholder="Create a password" required>
+                        <p class="password-note">At least 8 characters with uppercase, lowercase, and numbers</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-confirm">Confirm Password</label>
+                        <input type="password" id="signup-confirm" name="confirm" placeholder="Confirm your password" required>
+                    </div>
+                    <button type="submit" class="account-submit-btn">Create Account</button>
+                </form>
+                <div class="form-footer">
+                    <p>Already have an account? <a onclick="switchAccountTab('login')">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openAccountModal() {
+            document.getElementById('accountModal').classList.add('active');
+        }
+
+        function closeAccountModal() {
+            document.getElementById('accountModal').classList.remove('active');
+        }
+
+        document.getElementById('accountModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAccountModal();
+            }
+        });
+
+        function switchAccountTab(tabName) {
+            document.querySelectorAll('.account-tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.account-tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value;
+            alert(`Login successful for: ${email}`);
+            closeAccountModal();
+            document.getElementById('login-email').value = '';
+            document.getElementById('login-password').value = '';
+        }
+
+        function handleSignUp(event) {
+            event.preventDefault();
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const confirm = document.getElementById('signup-confirm').value;
+
+            if (password !== confirm) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            alert(`Account created successfully!\n\nName: ${name}\nEmail: ${email}`);
+            closeAccountModal();
+            document.getElementById('signup-name').value = '';
+            document.getElementById('signup-email').value = '';
+            document.getElementById('signup-password').value = '';
+            document.getElementById('signup-confirm').value = '';
+        }
+    </script>
+
     <script src="JS/menu.js"></script>
+    <script src="JS/web.js"></script>
 </body>
 </html>
