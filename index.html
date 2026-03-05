@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Database</title>
-    <link rel="stylesheet" href="resize.css">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="CSS/resize.css">
+    <link rel="stylesheet" href="CSS/main.css">
     <style>
         * {
             margin: 0;
@@ -192,7 +192,7 @@
                 </form>
                 <button class="nav-btn active" onclick="showSection('home', event)">Movies</button>
                 <button class="nav-btn" onclick="showSection('info', event)">TV Shows</button>
-                <button class="nav-btn" onclick="showSection('links', event)">Celebrities</button>
+                <button class="nav-btn" onclick="showSection('celeb', event)">Celebrities</button>
                 <a href="#" class="nav-account" id="navAccount" aria-label="Account">
                     <img src="Images/user.webp" alt="User avatar">
                 </a>
@@ -210,7 +210,7 @@
         </div>
         <button class="nav-btn active" onclick="showSection('home', event)">Home</button>
         <button class="nav-btn" onclick="showSection('info', event)">Info</button>
-        <button class="nav-btn" onclick="showSection('links', event)">Links</button>
+        <button class="nav-btn" onclick="showSection('celeb', event)">Links</button>
     </div>
 
     <!-- Main Content -->
@@ -220,6 +220,7 @@
             <h2>Welcome to Movie Database</h2>
             <p>Discover your favorite movies, explore new releases, and manage your watchlist all in one place.</p>
             <p>Use the navigation menu above to explore different sections of the site.</p>
+            
             <div class="content-row">
                 <div class="content-image">
                     <img src="Images/avengers.webp" alt="Movie placeholder image">
@@ -234,6 +235,44 @@
                         <li><strong>Director:</strong> Joss Whedon</li>
                     </ul>
                     <p><strong>Cast:</strong> Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth, Scarlett Johansson, Jeremy Renner, Tom Hiddleston, Samuel L. Jackson.</p>
+                </div>
+            </div>
+
+            <!-- full‑width celebrity banner with five circular portraits -->
+            <div class="celebs-banner">
+                <div class="celeb"><img src="Images/user.webp" alt="Celebrity 1"></div>
+                <div class="celeb"><img src="Images/user.webp" alt="Celebrity 2"></div>
+                <div class="celeb"><img src="Images/user.webp" alt="Celebrity 3"></div>
+                <div class="celeb"><img src="Images/user.webp" alt="Celebrity 4"></div>
+                <div class="celeb"><img src="Images/user.webp" alt="Celebrity 5"></div>
+            </div>
+
+            <b><p style="font-size: 20px;">Reviews</p></b>
+
+            <div class="reviews">
+                <div class="review">
+                    <div class="review-image">
+                        <img src=" " alt="Movie 1">
+                    </div>
+                    <div class="review-text">
+                        <p><strong>John Doe:</strong> "An epic superhero film that delivers on action and humor. A must-watch for Marvel fans!"</p>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-image">
+                        <img src=" " alt="Movie 2">
+                    </div>
+                    <div class="review-text">
+                        <p><strong>Jane Smith:</strong> "Great ensemble cast and thrilling storyline. The Avengers set a new standard for superhero movies."</p>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-image">
+                        <img src=" " alt="Movie 3">
+                    </div>
+                    <div class="review-text">
+                        <p><strong>Bob Johnson:</strong> "While the action scenes are fantastic, the plot felt a bit rushed at times. Still, an enjoyable watch."</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -252,7 +291,7 @@
         </section>
 
         <!-- Links Section -->
-        <section id="links" class="section">
+        <section id="celeb" class="section">
             <h2>Useful Links</h2>
             <p>Check out these resources:</p>
             <ul style="margin-left: 2rem;">
@@ -264,6 +303,25 @@
         </section>
     </main>
 
-    <script src="menu.js"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="movie-apps">
+                <a href="https://www.primevideo.com" target="_blank" aria-label="Amazon Prime Video">🎬 Amazon Prime</a>
+                <a href="https://www.imdb.com" target="_blank" aria-label="IMDB">⭐ IMDB</a>
+                <a href="https://www.primevideo.com" target="_blank" aria-label="Prime">▶️ Prime</a>
+                <a href="https://www.disneyplus.com" target="_blank" aria-label="Disney+">✨ Disney+</a>
+                <a href="https://www.itv.com" target="_blank" aria-label="ITV">📺 ITV</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">📘 Facebook</a>
+                <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">🐦 Twitter</a>
+                <a href="https://www.x.com" target="_blank" aria-label="X">𝕏 X</a>
+            </div>
+            <p class="copyright">&copy; 2026 Movie Database. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="JS/menu.js"></script>
 </body>
 </html>
