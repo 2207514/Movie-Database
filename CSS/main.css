@@ -1,4 +1,39 @@
 /* Main content styles (moved from inline <style>) */
+.image-title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+.image-buttons {
+    position: absolute;
+    bottom: 10px; /* Adjust to place below the title */
+    left: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.image-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.image-btn:hover {
+    background: #0056b3;
+}
+
+
+
 .content-row {
     display: flex;
     gap: 1rem;
